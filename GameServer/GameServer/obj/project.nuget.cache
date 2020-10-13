@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "81BqyE5X3qB2lDVfn/WWvfpFo5R+Wfa9DAQAhULMilaK1I0W/UcEGdCXiQU4fWTkr6uH2OHLZ5WTqrACsKzIAw==",
+  "success": true,
+  "projectFilePath": "c:\\Project\\csharp\\poker\\GameServer\\GameServer\\GameServer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\SergIT\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\SergIT\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.0.1\\microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512",
+    "C:\\Users\\SergIT\\.nuget\\packages\\microsoft.netcore.app.ref\\3.0.0\\microsoft.netcore.app.ref.3.0.0.nupkg.sha512",
+    "C:\\Users\\SergIT\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.0.3\\microsoft.netcore.app.host.win-x64.3.0.3.nupkg.sha512",
+    "C:\\Users\\SergIT\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.0.0\\microsoft.windowsdesktop.app.ref.3.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
