@@ -31,7 +31,17 @@ public class ClientHandle : MonoBehaviour
 
         Debug.Log($"NewSpectator: {_myId} + __ + {_username}");
 
+    }
 
+    public static void GetChatMsg(Packet _packet)
+    {
+        Debug.Log($"GetChatMsg");
+        int _user = _packet.ReadInt();
+        string _msg = _packet.ReadString();
+
+        Debug.Log($"User: {_user} + __ + {_msg}");
+
+        UIManagerGame.instance.ShowMsgToChat(_user.ToString(), _msg);
     }
 
 }

@@ -32,10 +32,34 @@ class UIManagerGame : MonoBehaviour
 
     public void SentMsgToChat()
     {
-        GameObject newMsg = Instantiate(chatMessage, chatContent);
-        Text content = newMsg.GetComponent<Text>();
-        content.text = string.Format(content.text, "user: ", "msg 123");
+        string msg = chatInput.text;
+
+        if (msg != "")
+        {
+            GameObject newMsg = Instantiate(chatMessage, chatContent);
+            Text content = newMsg.GetComponent<Text>();
+            content.text = string.Format(content.text, "ME: ", msg);
+
+            ClientSend.SendChatMsg();
+
+            chatInput.text = "";
+        }
+     
     }
+
+    public void ShowMsgToChat(string user, string msg)
+    {
+        Debug.Log($"ShowMsgToChat");
+        if (msg != "")
+        {
+          
+            GameObject newMsg = Instantiate(chatMessage, chatContent);
+            Text content = newMsg.GetComponent<Text>();
+            content.text = string.Format(content.text, user, msg);
+      
+        }
+    }
+
 
     public void Disconect()
     {

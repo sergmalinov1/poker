@@ -31,6 +31,16 @@ public class ClientSend : MonoBehaviour
         }
     }
 
+    public static void SendChatMsg()
+    {
+        using (Packet _packet = new Packet((int)ClientPackets.chatMsgReceived))
+        {
+            _packet.Write(Client.instance.login);
+            _packet.Write(UIManagerGame.instance.chatInput.text);
+
+            SendTCPData(_packet);
+        }
+    }
 
     #endregion
 }

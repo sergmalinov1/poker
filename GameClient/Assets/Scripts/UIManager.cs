@@ -36,6 +36,6 @@ public class UIManager : MonoBehaviour
 
     public void Disconect()
     {
-        Client.instance.Disconnect();
+       // Client.instance.Disconnect();
     }
 }

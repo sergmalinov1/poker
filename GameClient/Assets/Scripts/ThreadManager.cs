@@ -11,6 +11,7 @@ public class ThreadManager : MonoBehaviour
     private void Update()
     {
         UpdateMain();
+     //   Debug.Log($"Update");
     }
 
     /// <summary>Sets an action to be executed on the main thread.</summary>

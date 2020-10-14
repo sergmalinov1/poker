@@ -61,14 +61,14 @@ public class Client : MonoBehaviour
 
         if (code == "200") // авторизация успешна
         {
-            Debug.Log($"авторизация прошла успешна");
+         //   Debug.Log($"авторизация прошла успешна");
             Client.instance.udp.Connect(((IPEndPoint)Client.instance.tcp.socket.Client.LocalEndPoint).Port);
 
             SceneManager.LoadScene("GameTable");
         }
         if (code == "102") // не верный пароль
         {
-            Debug.Log($"логин или пароль не верные");
+          //  Debug.Log($"логин или пароль не верные");
             Client.instance.Disconnect();
 
         }
@@ -170,6 +170,7 @@ public class Client : MonoBehaviour
                 {
                     using (Packet _packet = new Packet(_packetBytes))
                     {
+                 //       Debug.Log($"Packet: {_packet}");
                         int _packetId = _packet.ReadInt();
                         packetHandlers[_packetId](_packet);
                     }
@@ -299,7 +300,9 @@ public class Client : MonoBehaviour
             { (int)ServerPackets.welcome, ClientHandle.Welcome },
             { (int)ServerPackets.authAnswer, ClientHandle.AuthAnswer },
             { (int)ServerPackets.newSpectator, ClientHandle.NewSpectator },
+            { (int)ServerPackets.chatMsgSend, ClientHandle.GetChatMsg },
         };
+
         Debug.Log("Initialized packets.");
     }
 
