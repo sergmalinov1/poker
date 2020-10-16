@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class ClientSend : MonoBehaviour
@@ -37,6 +38,20 @@ public class ClientSend : MonoBehaviour
         {
             _packet.Write(Client.instance.login);
             _packet.Write(UIManagerGame.instance.chatInput.text);
+
+            SendTCPData(_packet);
+        }
+    }
+
+    public static void JoinTheRoom()
+    {
+        using (Packet _packet = new Packet((int)ClientPackets.joinTheRoom))
+        {
+            string join = "JoinTheRoom";
+            string roomNum = "Room Number";
+
+            _packet.Write(join);
+            _packet.Write(roomNum);
 
             SendTCPData(_packet);
         }

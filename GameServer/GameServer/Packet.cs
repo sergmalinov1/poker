@@ -9,16 +9,18 @@ namespace GameServer
     public enum ServerPackets
     {
         welcome = 1,
-        authAnswer = 2,
-        newSpectator =3
-
-
+        authAnswer,
+        newSpectator,
+        newPlayer,
+        chatMsgSend
     }
 
     /// <summary>Sent from client to server.</summary>
     public enum ClientPackets
     {
         welcomeReceived = 1,
+        chatMsgReceived,
+        joinTheRoom
     }
 
     public class Packet : IDisposable

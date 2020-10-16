@@ -20,12 +20,34 @@ namespace GameServer
                 Console.WriteLine($"Player \"{_username}\" (ID: {_fromClient}) has assumed the wrong client ID ({_clientIdCheck})!");
             }
 
-            Console.WriteLine("Login: " + _login + ", Password: " + _pass);
+          //  Console.WriteLine("Login: " + _login + ", Password: " + _pass);
 
             Server.clients[_fromClient].Authorization(_login, _pass);       
         }
 
+        public static void ChatMsgReceived(int _fromClient, Packet _packet)
+        {
+            string _user = _packet.ReadString();
+            string _msg = _packet.ReadString();
 
+
+            Player player = Server.clients[_fromClient].player;
+
+            //    Console.WriteLine("_user: " + _user + ", _msg: " + _msg);
+
+            ServerSend.SendChatMsg(player, _msg);
+        }
+
+        public static void PlayerJoinTheRoom(int _fromClient, Packet _packet)
+        {
+            string _join = _packet.ReadString();
+            string _roomNum = _packet.ReadString();
+
+            Server.room.JoinTheRoom(_fromClient);
+
+            //rooms[roomNum].JoinTheRoom(_fromClient);
+
+        }
 
     }
 }

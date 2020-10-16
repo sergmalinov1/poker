@@ -43,7 +43,7 @@ namespace GameServer
         {
             TcpClient _client = tcpListener.EndAcceptTcpClient(_result);
             tcpListener.BeginAcceptTcpClient(TCPConnectCallback, null);
-            Console.WriteLine($"Incoming connection from {_client.Client.RemoteEndPoint}...");
+         //   Console.WriteLine($"Incoming connection from {_client.Client.RemoteEndPoint}...");
 
             for (int i = 1; i <= MaxPlayers; i++)
             {
@@ -122,9 +122,11 @@ namespace GameServer
             packetHandlers = new Dictionary<int, PacketHandler>()
             {
                 { (int)ClientPackets.welcomeReceived, ServerHandle.WelcomeReceived },
+                { (int)ClientPackets.chatMsgReceived, ServerHandle.ChatMsgReceived },
+                { (int)ClientPackets.joinTheRoom, ServerHandle.PlayerJoinTheRoom },
 
             };
-            Console.WriteLine("Initialized packets.");
+           // Console.WriteLine("Initialized packets.");
         }
     }
 }

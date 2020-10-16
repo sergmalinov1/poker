@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
     {
         //  startMenu.SetActive(false);
         // usernameField.interactable = false;
-        Debug.Log("ConnectToServer");
+       // Debug.Log("ConnectToServer");
         Client.instance.login = usernameField.text;
         Client.instance.ConnectToServer();
     }

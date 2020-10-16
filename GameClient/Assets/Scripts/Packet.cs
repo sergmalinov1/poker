@@ -10,6 +10,7 @@ public enum ServerPackets
     welcome = 1,
     authAnswer,
     newSpectator,
+    newPlayer,
     chatMsgSend
 }
 
@@ -17,7 +18,8 @@ public enum ServerPackets
 public enum ClientPackets
 {
     welcomeReceived = 1,
-    chatMsgReceived
+    chatMsgReceived,
+    joinTheRoom
 }
 
 public class Packet : IDisposable

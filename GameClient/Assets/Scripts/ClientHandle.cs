@@ -29,19 +29,28 @@ public class ClientHandle : MonoBehaviour
         int _myId = _packet.ReadInt();
         string _username = _packet.ReadString();
 
-        Debug.Log($"NewSpectator: {_myId} + __ + {_username}");
+       // Debug.Log($"NewSpectator: {_myId} + __ + {_username}");
+
+    }
+
+    public static void NewPlayer(Packet _packet)
+    {
+        int _playerId = _packet.ReadInt();
+        string _msg = _packet.ReadString();
+
+        Debug.Log($"NewPlayer: {_playerId} + __ + {_msg}");
 
     }
 
     public static void GetChatMsg(Packet _packet)
     {
-        Debug.Log($"GetChatMsg");
-        int _user = _packet.ReadInt();
+        // Debug.Log($"GetChatMsg");
+        string _user = _packet.ReadString();
         string _msg = _packet.ReadString();
 
-        Debug.Log($"User: {_user} + __ + {_msg}");
+     // Debug.Log($"User {_user} + __ + {_msg}");
 
-        UIManagerGame.instance.ShowMsgToChat(_user.ToString(), _msg);
+        UIManagerGame.instance.ShowMsgToChat(_user, _msg);
     }
 
 }

@@ -15,6 +15,7 @@ class UIManagerGame : MonoBehaviour
 
     public Transform chatContent;
     public GameObject chatMessage;
+    public Button btnJoin;
 
     private void Awake()
     {
@@ -38,7 +39,7 @@ class UIManagerGame : MonoBehaviour
         {
             GameObject newMsg = Instantiate(chatMessage, chatContent);
             Text content = newMsg.GetComponent<Text>();
-            content.text = string.Format(content.text, "ME: ", msg);
+            content.text = string.Format(content.text, "ME ", msg);
 
             ClientSend.SendChatMsg();
 
@@ -49,7 +50,6 @@ class UIManagerGame : MonoBehaviour
 
     public void ShowMsgToChat(string user, string msg)
     {
-        Debug.Log($"ShowMsgToChat");
         if (msg != "")
         {
           
@@ -58,6 +58,12 @@ class UIManagerGame : MonoBehaviour
             content.text = string.Format(content.text, user, msg);
       
         }
+    }
+
+    public void JoinToGame()
+    {
+        btnJoin.enabled = false;
+        ClientSend.JoinTheRoom();
     }
 
 

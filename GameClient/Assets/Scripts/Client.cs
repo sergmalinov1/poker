@@ -170,7 +170,6 @@ public class Client : MonoBehaviour
                 {
                     using (Packet _packet = new Packet(_packetBytes))
                     {
-                 //       Debug.Log($"Packet: {_packet}");
                         int _packetId = _packet.ReadInt();
                         packetHandlers[_packetId](_packet);
                     }
@@ -300,7 +299,9 @@ public class Client : MonoBehaviour
             { (int)ServerPackets.welcome, ClientHandle.Welcome },
             { (int)ServerPackets.authAnswer, ClientHandle.AuthAnswer },
             { (int)ServerPackets.newSpectator, ClientHandle.NewSpectator },
+            { (int)ServerPackets.newPlayer, ClientHandle.NewPlayer },
             { (int)ServerPackets.chatMsgSend, ClientHandle.GetChatMsg },
+           
         };
 
         Debug.Log("Initialized packets.");

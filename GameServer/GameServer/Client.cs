@@ -212,12 +212,13 @@ namespace GameServer
 
             Server.room.spectators.Add(this);
 
-            Console.WriteLine($"  NewSpectators  ");
+          /*  Console.WriteLine($"  NewSpectators  ");
             foreach (Client _client in Server.room.spectators)
             {
                 Console.WriteLine($"Player \"{_client.player.username}\" (ID: {_client.player.id})");
             }
-            Console.WriteLine($"  _________________  ");
+            Console.WriteLine($"  _________________  ");*/
+            
 
             foreach (Client _client in Server.room.spectators)
             {
@@ -244,8 +245,8 @@ namespace GameServer
         {
             Console.WriteLine($"{tcp.socket.Client.RemoteEndPoint} has disconnected.");
 
-            if(Server.room.spectators.Contains(this))
-                Server.room.spectators.Remove(this);
+            Server.room.LeaveTheRoom(this);
+                
 
             player = null;
 
